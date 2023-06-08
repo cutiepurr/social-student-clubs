@@ -50,6 +50,7 @@ router.post('/send-notification', async function (req, res, next) {
 router.get('/', function (req, res, next) {
   req.pool.getConnection(function (cerr, connection) {
     if (cerr) {
+      console.log(cerr);
       res.status(500);
       return;
     }
@@ -57,6 +58,7 @@ router.get('/', function (req, res, next) {
     connection.query(query, function (err, results, field) {
       connection.release();
       if (err) {
+        console.log(err);
         res.status(500);
         return;
       }
