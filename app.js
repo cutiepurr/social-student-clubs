@@ -41,6 +41,7 @@ app.use(session({
 }));
 app.use(function (req, res, next) {
     req.pool = dbConnectionPool;
+    console.log(process.env.MYSQLHOST);
     next();
 });
 // app.use(express.static(path.join(__dirname, 'public')));
