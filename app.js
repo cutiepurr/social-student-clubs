@@ -6,16 +6,6 @@ var logger = require('morgan');
 var mysql = require('mysql');
 var session = require('express-session');
 
-var dbConnectionPool = mysql.createPool(
-    // process.env.MYSQL_URL);
-{
-    port: process.env.MYSQLPORT,
-    host: process.env.MYSQLHOST,
-    database: process.env.MYSQLDATABASE,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-});
-
 var indexRouter = require('./routes/index');
 var clubsRouter = require('./routes/clubs');
 var adminRouter = require('./routes/admin');
@@ -39,12 +29,18 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
+
+var dbConnectionPool = mysql.createPool({
+    host: process.env.MYSQLHOST,
+    port: process.env.MYSQLPORT,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+});
 app.use(function (req, res, next) {
     req.pool = dbConnectionPool;
-    console.log(process.env.MYSQLHOST);
     next();
 });
-// app.use(express.static(path.join(__dirname, 'public')));
 // to use res.render(html file)
 app.use(express.static(path.join(__dirname, 'public'), {
     dotfiles: 'ignore',

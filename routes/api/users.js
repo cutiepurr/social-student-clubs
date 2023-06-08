@@ -1,7 +1,7 @@
 var express = require('express');
 var bcrypt = require('bcryptjs'); // authentication
 var router = express.Router();
-const CLIENT_ID = '902254748971-j0pivt4ls2p5e8aknv4j2r2vfl3esrg1.apps.googleusercontent.com';
+const CLIENT_ID = process.env.CLIENT_ID;
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(CLIENT_ID);
 
