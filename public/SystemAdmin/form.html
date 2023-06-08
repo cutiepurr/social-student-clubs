@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.ico">
+    <title>Admin | Form</title>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <script src="/js/app.js" type="module" defer></script>
+    <script src="/js/instances/admin/form.js" type="module" defer></script>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <page-nav v-bind:isuser="isLoggedIn" v-bind:isadmin="isAdmin"></page-nav>
+        <header>
+            <h1><a href="/admin">System Administrator</a></h1>
+        </header>
+        <main v-pre v-cloak>
+            <div class="mt-3">
+                <h2 v-if="ifEdit">Edit {{ type }}</h2>
+                <h2 v-else>Create {{ type }}</h2>
+                <hr />
+            </div>
+           <form id="clubs" v-if="type=='clubs'">
+                <div class="mt-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" v-model="db.name">
+                </div>
+                <div class="mt-3" v-if="ifEdit">
+                    <input type="checkbox" class="form-check-input" id="active" v-model="db.active">
+                    <label for="active" class="form-label">Active</label>
+                    <input type="checkbox" class="form-check-input" id="hidden" v-model="db.hidden">
+                    <label for="hidden" class="form-label">Hidden</label>
+                </div>
+                <div class="mt-3">
+                    <label for="about" class="form-label">About</label>
+                    <textarea name="about" id="about" class="form-control" cols="30" rows="10">{{ db.about }}</textarea>
+                </div>
+                <button class="btn btn-primary mt-3" type="button" v-on:click="editClub" v-if="ifEdit">Save</button>
+                <button class="btn btn-primary mt-3" type="button" v-on:click="addClub" v-else>Save</button>
+           </form>
+
+           <div v-if="type=='clubs' && ifEdit" class="mt-5">
+                <h5>Add member</h5>
+                <button type="button" class="btn btn-primary float-right" v-on:click="addMember()">Add</button>
+                <input type="email" name="member" id="memberEmail" placeholder="Email" class="form-control" style="width: 70%;">
+
+                <h2 class="mt-3">Managers</h2><hr>
+                <div class="tab clubMember" v-for="member in members" v-if="member.is_manager" style="border-bottom: solid 1px aliceblue">
+                    <button type="button" class="btn btn-secondary btn-sm float-right"
+                    v-on:click="promoteMember(member.user_id, 'demote')">Remove manager</button>
+                    <p>{{ member.user.first_name }} {{ member.user.last_name }} <{{ member.user.email }}></p>
+                </div>
+
+                <h2>Members ({{ members.length }})</h2><hr>
+                <div class="tab clubMember" v-for="member in members" v-bind:value="member.user_id" style="border-bottom: solid 1px aliceblue">
+                    <div>
+                        <button class="btn btn-danger btn-sm float-right" v-on:click="deleteMember(member.user_id)">Remove from club</button>
+                        <button class="btn btn-success btn-sm float-right"
+                        style="margin-right: 10px;" v-if="!member.is_manager"
+                        v-on:click="promoteMember(member.user_id, 'promote')">Promote</button>
+                    </div>
+                    <p>{{ member.user.first_name }} {{ member.user.last_name }} <{{ member.user.email }}></p>
+                </div>
+           </div>
+
+
+           <form id="users" v-if="type=='users'">
+                <div class="mt-3">
+                    <label for="first_name" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="first_name" placeholder="First name" v-model="db.first_name">
+                </div>
+                <div class="mt-3">
+                    <label for="last_name" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="last_name" placeholder="Last name" v-model="db.last_name">
+                </div>
+                <div class="mt-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Last name" v-model="db.email">
+                </div>
+                <button class="btn btn-primary mt-3" type="button" v-on:click="editUser">Save</button>
+            </form>
+            <form v-if="type=='users'" class="mt-3">
+                <hr>
+                <h3>Change password</h3>
+                <div>
+                    <input type="password" class="form-control" id="password" placeholder="New password">
+                </div>
+                <button class="btn btn-primary mt-3" type="button" v-on:click="changePassword">Save</button>
+            </form>
+        </main>
+        <page-footer></page-footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.ico">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../stylesheets/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="/js/app.js" type="module" defer></script>
+    <script src="/js/instances/admin/admin.js" type="module" defer></script>
+    <link rel="stylesheet" href="../stylesheets/index.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <page-nav v-bind:isuser="isLoggedIn" v-bind:isadmin="isAdmin"></page-nav>
+        <header id="header">
+            <h1><a href="/admin">System Administrator</a></h1>
+            <div id="search"></div>
+        </header>
+        <main v-pre v-cloak>
+            <div class="adminMainTop">
+                <h2>Admin Center</h2>
+                <hr />
+            </div>
+            <div id="bottomBox">
+                <div class="stats">
+                    <h3 class="statsHeader">Clubs</h3>
+                    <div class="num">{{ count.club }}</div>
+                    <a class="btn btn-primary" href="/admin/clubs">Manage Clubs</a>
+                </div>
+                <!-- <div class="stats">
+                    <h3 class="statsHeader">Club Managers</h3>
+                    <div class="num">25</div>
+                    <a class="btn btn-primary" href="/admin/clubs">Manage Club Managers</a>
+                </div> -->
+                <div class="stats">
+                    <h3 class="statsHeader">Admins</h3>
+                    <div class="num">{{ count.admin }}</div>
+                    <a class="btn btn-primary" href="/admin/admins">Manage Admins</a>
+                </div>
+            </div>
+            <div id="bottomBox">
+                <div class="stats">
+                    <h3 class="statsHeader">Users</h3>
+                    <div class="num">{{ count.user }}</div>
+                    <a class="btn btn-primary" href="/admin/users">Manage Users</a>
+                </div>
+                <div class="stats big-btn" onclick="location.href='/admin/clubs/add'">
+                    <!-- <button type="button" class="btn btn-primary" onclick="location.href='createClub.html'">Add a club +</button> -->
+                    <div id="bigB">Add<br>club
+                    </div>
+                </div>
+            </div>
+        </main>
+        <page-footer></page-footer>
+    </div>
+</body>
+
+</html>

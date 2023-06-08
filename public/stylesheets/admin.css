@@ -1,0 +1,241 @@
+*{
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+    height: 150px;
+    background-image: url("../assets/TechBackground.jpg");
+    background-size: cover;
+    margin: 0px;
+}
+
+header h1{
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    padding: 50px;
+}
+
+main{
+    width: 80%;
+    margin: auto;
+}
+
+/* Flex  Use align items: Baseline to make texts align*/
+#adminDashboard{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    box-sizing: border-box;
+    max-width: 1400px;
+    width: 80%;
+    flex-direction: column;
+    margin: auto;
+    height: 80%;
+    /* gap: to add gap between items*/
+}
+
+.adminMainTop{
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    flex: 2%;
+}
+
+.adminMainTop > hr{
+    padding-top: 30px;
+}
+
+.adminMainTop > button{
+    margin-left: 10px;
+}
+
+h2{
+    font-weight:500;
+    font-size: 35px;
+}
+
+.statsTop{
+    display:flex;
+    flex-direction: row;
+    flex:33%;
+}
+
+.stats{
+    display:flex;
+    text-align: left;
+    flex-direction: column;
+    background-color:rgba(220, 220, 220, 0.1);
+    padding: 15px;
+    margin: 2%;
+    height: 230px;
+    width: 300px;
+    border-radius: 15px;
+    /* Box-shadow property copied from W3schools webpage for a card effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#adminMain{
+    /* flex:10%; */
+    /* text-align: left; */
+    /* width:80%; */
+    height:5rem;
+}
+
+h1 > a{
+        text-decoration: none;
+        color: inherit;
+}
+
+#topBox{
+    flex:45%;
+    flex-direction: row;
+    display:flex;
+    height:20%;
+    margin:auto;
+}
+
+#bottomBox{
+    flex:45%;
+    flex-direction:row;
+    display:flex;
+    height:20%;
+    justify-content: center;
+}
+.statsHeader {
+    text-align: center;
+    font-size: 35px;
+}
+.num{
+    font-weight: 500;
+    font-size: 55px;
+    margin: auto;
+    flex:60%;
+}
+
+#userMain{
+    justify-content:flex-start;
+    /* gap: 1em; */
+}
+
+.float-right{
+    float:right;
+}
+
+#top{
+    padding: 0.8em;
+    /* width:80%; */
+    height:10%;
+}
+
+#userButtons{
+    display:flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.float-left{
+    float: left;
+}
+
+#userInfo{
+    width: 100%;
+    font-size: 18px;
+}
+
+#userRight{
+    padding-right: 20%;
+}
+
+.top{
+    width: 100%;
+}
+
+
+
+.club{
+    font-size: 18px;
+}
+
+.clubImage{
+    height: 100px;
+    width: 100px;
+    border: groove 1px grey;
+    object-fit: contain;
+}
+
+.clubName{
+    display:inline;
+    font-size: 27px;
+    padding-left: 4%;
+}
+.clubs{
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.club > *{
+    margin-top: 5px;
+}
+
+#bigB{
+    font-weight: 700;
+    font-size: 60px;
+    margin: auto;
+    flex:80%;
+}
+
+.club > hr{
+    margin-top: 30px;
+}
+
+.clubButtons > *{
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.table{
+    flex: 75%;
+}
+
+main > *{
+    width: 100%;
+}
+
+.addForm{
+    margin-bottom: 5%;
+}
+
+.addForm > *{
+    margin-top: 1rem;
+}
+
+.adminFormTop{
+    margin-top: 1.5rem;
+}
+.big-btn {
+    background-color: white;
+    color: rgb(20, 60, 112);
+    text-align: center;
+    border: 3px outset rgb(20, 60, 112);
+
+}
+.big-btn:hover {
+    background-color: rgb(20, 60, 112);;
+    color:white;
+    cursor: pointer;
+    border: 3px solid rgb(20, 60, 112);
+}
+
+.btnSpace{
+    margin-top: 35px;
+}
+
+.btnSpace > *{
+    margin-left:10px;
+}
