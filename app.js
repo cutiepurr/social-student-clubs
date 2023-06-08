@@ -1,3 +1,4 @@
+const compression = require('compression');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -5,12 +6,14 @@ var logger = require('morgan');
 var mysql = require('mysql');
 var session = require('express-session');
 
-var dbConnectionPool = mysql.createPool({
-    host: 'localhost',
-    database: 'clubs'
-    // user: 'username',
-    // password: 'password'
-});
+var dbConnectionPool = mysql.createPool(process.env.MYSQL_URL);
+//     {
+//     port: process.env.MYSQLPORT,
+//     host: process.env.MYSQLHOST,
+//     database: process.env.MYSQLDATABASE,
+//     user: process.env.MYSQLUSER,
+//     password: process.env.MYSQLPASSWORD,
+// });
 
 var indexRouter = require('./routes/index');
 var clubsRouter = require('./routes/clubs');
@@ -24,6 +27,7 @@ var apiUpdatesRouter = require('./routes/api/updates');
 
 var app = express();
 
+app.use(compression())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

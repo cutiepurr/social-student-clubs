@@ -24,8 +24,8 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'hotmail',
   auth: {
-    user: 'adobe-flash-lives-on@outlook.com',
-    pass: 'AdobeFlash!'
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
   }
 });
 // send notifications to user via email
