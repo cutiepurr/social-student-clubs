@@ -6,14 +6,15 @@ var logger = require('morgan');
 var mysql = require('mysql');
 var session = require('express-session');
 
-var dbConnectionPool = mysql.createPool(process.env.MYSQL_URL);
-//     {
-//     port: process.env.MYSQLPORT,
-//     host: process.env.MYSQLHOST,
-//     database: process.env.MYSQLDATABASE,
-//     user: process.env.MYSQLUSER,
-//     password: process.env.MYSQLPASSWORD,
-// });
+var dbConnectionPool = mysql.createPool(
+    // process.env.MYSQL_URL);
+{
+    port: process.env.MYSQLPORT,
+    host: process.env.MYSQLHOST,
+    database: process.env.MYSQLDATABASE,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+});
 
 var indexRouter = require('./routes/index');
 var clubsRouter = require('./routes/clubs');
