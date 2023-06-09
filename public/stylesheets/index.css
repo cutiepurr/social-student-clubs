@@ -48,10 +48,13 @@ body {
     border-left: solid 3px rgba(0,0,0,0);
 }
 #clubNav li a{
+    color: coral;
     text-decoration: none;
 }
+/* rgb (49,108,244) */
 #clubNav li:hover{
-    border-left: solid 3px rgb(49,108,244);
+    color: coral;
+    border-left: solid 3px coral;
 }
 .tab {
     padding: 5px;
@@ -59,7 +62,7 @@ body {
     border-left: solid 3px rgba(0,0,0,0);
 }
 .tab:hover {
-    border-left: solid 3px rgb(49,108,244);
+    border-left: solid 3px coral;
     background-image: linear-gradient(to right, rgb(251, 252, 253), rgba(0,0,0,0));
 }
 .grey {
@@ -80,7 +83,7 @@ body {
 }
 nav, footer {
     width: 100%;
-    background-color: rgb(20, 60, 112);
+    background-color: lightseagreen;
     padding: 20px;
     color: white;
 }
@@ -103,12 +106,12 @@ nav {
     color: white;
 }
 .nav-link > a {
-    background-color: rgb(20, 60, 112);
+    background-color: lightseagreen;
     padding: 15px;
     border-radius: 10px;
 }
 .nav-link > a:hover {
-    background-color: rgb(7, 34, 71);
+    background-color: coral;
 }
 
 #footerCopyright {
@@ -152,10 +155,12 @@ footer {
     color: white;
 }
 .btn-primary {
-    background-color: rgb(20, 60, 112);
+    background-color: lightseagreen;
+    border-color: rgba(0,0,0,0);
 }
 .btn-primary:hover {
-    background-color: rgb(39, 97, 172);
+    background-color: coral;
+    border-color: rgba(0,0,0,0);
 }
 
 .dropdown {
@@ -175,14 +180,13 @@ footer {
 }
 
 .dropdown-content a {
-    color: rgb(20, 60, 112);
     padding: 12px 12px;
     text-decoration: none;
     display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: rgb(20, 60, 112);
+    background-color: lightsalmon;
     color: white;
 }
 
