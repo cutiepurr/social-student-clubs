@@ -31,11 +31,11 @@ app.use(session({
 }));
 
 var dbConnectionPool = mysql.createPool({
-    host: process.env.MYSQLHOST,
-    port: process.env.MYSQLPORT,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE,
+    host: process.env.RDS_HOSTNAME,
+    port: process.env.RDS_PORT,
+    user: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
+    database: process.env.RDS_DB_NAME,
 });
 app.use(function (req, res, next) {
     req.pool = dbConnectionPool;
