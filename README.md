@@ -3,12 +3,12 @@ This was migrated from the private course repository, thereby having a short com
 
 Project for Web & Database Computing course at the University of Adelaide.
 
-Deployed on Railway: [https://social-student-clubs.up.railway.app/](https://social-student-clubs.up.railway.app/)
-UPDATED: The link not working because Railway cancelled their free plan.
+Deployed on AWS: https://nzetmwb5qa.ap-southeast-2.awsapprunner.com/
 
 ## Description
 Social Student Clubs is a web platform to manage student clubs. Users can create clubs, add and edit clubs' updates and events, and manage their clubs.
-The project uses Vue 2 for the front end and Express for the back end. It is integrated with MySQL database and is deployed on Railway under the free plan.
+
+The project uses Vue 2 for the front end and Express for the back end. It is integrated with a MySQL database and is deployed on AWS.
 ## Usage
 ```
 npm install
