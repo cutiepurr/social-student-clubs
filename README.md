@@ -3,7 +3,7 @@ This was migrated from the private course repository, thereby having a short com
 
 Project for Web & Database Computing course at the University of Adelaide.
 
-Deployed on AWS: http://social-student-clubs.ap-southeast-2.elasticbeanstalk.com/
+Demo: https://social-student-clubs.onrender.com/
 
 ## Description
 Social Student Clubs is a web platform to manage student clubs. Users can create clubs, add and edit clubs' updates and events, and manage their clubs.
